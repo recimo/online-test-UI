@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogQuestionComponent } from './dialog-question/dialog-question.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { HttpClientModule } from '@angular/common/http'; 
 
 const appRoutes : Routes = [
   {
@@ -53,7 +55,9 @@ const appRoutes : Routes = [
     FormsModule,
     MatDialogModule,
     RouterModule.forRoot(appRoutes),
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Questions } from './model/questions';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-questions',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionsComponent implements OnInit {
 
-  constructor() { }
+  questions: Questions[] = [];
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
+    this.getAllQuestions();
+  }
+
+  public getAllQuestions() {
+    this.apiService.getAllQuestions().subscribe(
+      res => {
+        this.questions = res;
+      },
+      err => {
+        alert("Error has occured while fetching questions!")
+      }
+    );
   }
 
 }

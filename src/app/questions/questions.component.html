@@ -1,1 +1,32 @@
-<p>questions works!</p>
+<div class=container style="background-color:powderblue;">
+    <div id="myslider" class="carousel slide" data-interval="false">
+        <!--indicators-->
+
+        <!--wrapper for slides-->
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" [ngClass]="{active:isFirst}" *ngFor="let question of questions;
+            index as i;first as isFirst">
+                <code id="pre">
+                    {{question.questionQuestion}}
+                </code>
+                <code id="pre">
+                    {{question.questionText}}
+                </code>
+                <code id="pre">
+                    {{question.questionAnswer}}
+                </code>
+            </div>
+            <!--img src="assets/images/jinwoo.png" alt="BADASS"/-->
+        </div>
+
+        <!--left/right controls-->
+        <a class="carousel-control-prev" href="#myslider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myslider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

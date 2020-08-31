@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { DialogQuestionComponent } from '../dialog-question/dialog-question.component';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-new-test',
@@ -9,13 +11,24 @@ import { DialogQuestionComponent } from '../dialog-question/dialog-question.comp
 })
 export class NewTestComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private apiService: ApiService, public dialog: MatDialog ) { }
 
   ngOnInit() {
   }
 
-  openDialog() {
-    this.dialog.open(DialogQuestionComponent);
-  }
+  openDialog():void {
+    let dialogRef = this.dialog.open(DialogQuestionComponent,{
 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        this.apiService.addQuestion(result).subscribe(
+        res => {
+        },
+        err => {
+          alert("Error while saving question!");
+        }
+      );
+    });
+  }
 }
