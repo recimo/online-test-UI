@@ -13,12 +13,25 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogQuestionComponent } from './dialog-question/dialog-question.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { DialogTestComponent } from './dialog-test/dialog-test.component';
+import { TestQuestionsComponent } from './test-questions/test-questions.component';
+import { ResultComponent } from './result/result.component';
+import { DialogAoiComponent } from './dialog-aoi/dialog-aoi.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel'; 
 
 const appRoutes : Routes = [
   {
+    path:'result/:name',
+    component:ResultComponent
+  },
+  {
     path:'tests',
     component:TestsComponent
+  },
+  {
+    path:'tests/:name',
+    component:QuestionsComponent
   },
   {
     path:'questions',
@@ -47,9 +60,13 @@ const appRoutes : Routes = [
     NotFoundComponent,
     QuestionsComponent,
     NewTestComponent,
-    DialogQuestionComponent
+    DialogQuestionComponent,
+    DialogTestComponent,
+    TestQuestionsComponent,
+    ResultComponent,
+    DialogAoiComponent
   ],
-  entryComponents: [DialogQuestionComponent],
+  entryComponents: [DialogQuestionComponent, DialogTestComponent, DialogAoiComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -57,7 +74,8 @@ const appRoutes : Routes = [
     RouterModule.forRoot(appRoutes),
     NoopAnimationsModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

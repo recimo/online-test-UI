@@ -6,6 +6,14 @@
     width: 100vh;
 }
 
+#pre2 {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    width: 80vh;
+}
+
 .container {
     height: 100vh;
     display: flex;

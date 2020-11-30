@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Dodaj novi test - naziv</h2>
+<mat-dialog-content class="container">
+    <textarea class="row" rows="2" cols="50" [(ngModel)]="model.name">
+
+    </textarea>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="save()">Dodaj</button>
+    <button mat-button mat-dialog-close>Odustani</button>
+</mat-dialog-actions>

@@ -12,7 +12,8 @@ export class DialogQuestionComponent implements OnInit {
   model:questionViewModel = {
     questionQuestion:'',
     questionText:'',
-    questionAnswer:''
+    questionAnswer:'',
+    answer:''
   };
 
   constructor(
@@ -30,9 +31,9 @@ export class DialogQuestionComponent implements OnInit {
 
 }
 
-
 export interface questionViewModel{
   questionQuestion:string;
   questionText:string;
   questionAnswer:string;
+  answer:string;
 }

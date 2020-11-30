@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Definisi novu regiju</h2>
+<mat-dialog-content class="container">
+    <label>ID regije</label>
+    <textarea class="row" rows="2" cols="50" [(ngModel)]="model.name">
+    </textarea>
+    <label>Pitanje za koje se definise regija</label>
+    <textarea class="row" rows="2" cols="50" [(ngModel)]="temp">
+    </textarea>
+    <label></label>
+    <div class="form-group">
+        <label for="sel1">Klase ontologije:</label>
+        <select class="form-control" id="sel1">
+          <option *ngFor="let class of classes">{{class}}</option>
+        </select>
+      </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="save()">Dodaj</button>
+    <button mat-button mat-dialog-close>Odustani</button>
+</mat-dialog-actions>

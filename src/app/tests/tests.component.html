@@ -1,8 +1,13 @@
-<div class="container row">
-    <button type="button" class="btn btn-primary col-3" [routerLink]="['/newtest']">Dodaj novi test</button>
-    <ul class="list-group w-100 col-8 mx-2">
-        <li class="list-group-item">First item</li>
-        <li class="list-group-item">Second item</li>
-        <li class="list-group-item">Third item</li>
-    </ul>
+<div>
+    <form action="/action_page.php">
+        <div>
+            <button mat-raised-button (click)="openDialog()">Dodaj novi test</button>
+            <ul class="list-group" *ngFor="let test of tests">               
+                <a href="/tests/{{test.name}}" class="list-group-item list-group-item-action text-center">{{test.name}}</a>
+                <button mat-raised-button (click)="addQuestion(test.name)">
+                    Dodaj pitanje
+                </button>
+            </ul>
+        </div>
+    </form>
 </div>
